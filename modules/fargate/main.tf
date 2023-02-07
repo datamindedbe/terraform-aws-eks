@@ -42,7 +42,7 @@ resource "aws_iam_role" "eks_fargate_pod" {
 resource "aws_iam_role_policy_attachment" "eks_fargate_pod" {
   count = local.create_eks && var.create_fargate_pod_execution_role ? 1 : 0
 
-  policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"
   role       = aws_iam_role.eks_fargate_pod[0].name
 }
 
