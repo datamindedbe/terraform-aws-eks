@@ -63,10 +63,10 @@ locals {
 output "aws_auth_data" {
   value = {
     mapRoles = yamlencode(
-    distinct(concat(
-    local.configmap_roles,
-    var.map_roles,
-    ))
+      distinct(concat(
+        local.configmap_roles,
+        var.map_roles,
+      ))
     )
     mapUsers    = yamlencode(var.map_users)
     mapAccounts = yamlencode(var.map_accounts)
